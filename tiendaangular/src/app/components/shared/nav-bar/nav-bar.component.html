@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" [routerLink]="['/main']">La bodega</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse d-lg-flex justify-content-end" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/main']"><i class="fa fa-th" aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/carrito']"><i class="fa fa-shopping-cart" aria-hidden="true"></i><i *ngIf="_carritoService.getCarrito().length > 0" class="fs-8 c-red fa fa-circle" aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link pointer" (click) = "logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>

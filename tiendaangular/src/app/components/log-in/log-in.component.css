@@ -1,0 +1,11 @@
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/img/fondos/login-fondo.jpg");
+  background-size: cover;
+  background-position: right;
+}
+
+.login-pane {
+  max-width: 500px;
+}

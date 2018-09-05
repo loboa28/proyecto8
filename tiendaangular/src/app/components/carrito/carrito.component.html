@@ -1,0 +1,40 @@
+<div class="main-container p-bott-50">
+  <div class="container">
+    <app-nav-bar></app-nav-bar>
+
+    <div class="fadeIn slow catalogo bg-white top-30">
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+        <h1>Carrito de compras</h1>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-8 col-sm-7">
+          <ul class="list-group top-20">
+            <li *ngFor="let item of this._carritoService.getCarrito()" class="list-group-item">
+              <div class="d-flex justify-content-start align-items-start top-10">
+                <img [src]="item.url | foto" alt="" class="img-thumbnail img-20">
+                <div>
+                  <h6 [routerLink]="['/producto', item.id]" class="pointer left-10">{{ item.nombre }}</h6>
+                  <div class="d-flex flex-row justify-content-end align-items-center">
+                    <p class="left-10">Cantidad: <span class="badge badge-primary badge-pill">{{ item.cantidad }} </span></p>
+                    <p class="left-10">Subtotal: {{ (item.cantidad * item.precio) | currency:'USD':true:'1.0-0' }} COP </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-5 top-20">
+          <div class="top-50">
+            <h4>Total: {{ this.total | currency:'USD':true }} COP</h4>
+            <input [routerLink]="['/main']" type="button" value="Atrás" class="fadeIn fast pointer btn btn-outline-info">
+            <input (click)="this.pagar()" type="button" value="Pagar" class="fadeIn fast pointer btn btn-outline-success">
+            <input (click)="this.vaciar()" type="button" value="Vaciar" class="fadeIn fast pointer btn btn-outline-danger">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div (keyup.enter)="checkLogin(boton)" class="fadeIn slow container-fluid login-container d-flex justify-content-center align-items-center text-white">
+  <div class="login-pane text-justify container">
+
+      <div class="text-center">
+        <h2>Inicia sesión</h2>
+      </div>
+
+      <form>
+        <div class="form-group">
+
+          <label class="fz-20" for="email">Correo electrónico:</label>
+          <input (keyup)="loginFail=false"
+                 #user=ngModel
+                 [(ngModel)]="email" name="email" class="form-control form-control-md" type="email" placeholder="usuario" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$">
+
+          <label class="fz-20 top-5" for="pass">Contraseña:</label>
+          <input (keyup)="loginFail=false"
+                 #pasw=ngModel
+                 [(ngModel)]="pass" name="pass" class="form-control form-control-md" type="password" placeholder="contraseña" required>
+
+        </div>
+
+        <div class="form-group text-center">
+          <input [disabled]="(user.invalid || pasw.invalid)"
+                 [ngClass]="{'disabled flecha': (user.invalid || pasw.invalid)}"
+                 (click)="checkLogin(boton)" #boton class="pointer btn btn-success" type="button" name="ingresar" value="Ingresar">
+        </div>
+
+      </form>
+
+  </div>
+</div>
+
+<!--Notificaciones-->
+<div class="notificaciones">
+  <div *ngIf="(user.invalid && (user.dirty || user.touched)) && !loginFail" class=" fadeIn fast alert alert-danger">
+    <!--Falta email-->
+    <div *ngIf="user.errors.required">Se requiere email.</div>
+    <!--Email incorrecto-->
+    <div *ngIf="user.errors.pattern">El email no es válido.</div>
+  </div>
+  <!--Falta contraseña-->
+  <div *ngIf="(pasw.invalid && (pasw.dirty || pasw.touched)) && !loginFail" class=" fadeIn fast alert alert-danger">
+    <div *ngIf="pasw.errors.required">Se requiere contraseña.</div>
+  </div>
+  <!--Datos incorrectos-->
+  <div *ngIf="loginFail" class=" fadeIn fast alert alert-danger">
+    Contraseña o correo incorrectos.
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="main-container p-bott-50">
+  <div class="container">
+    <app-nav-bar></app-nav-bar>
+
+    <div *ngIf="this.producto" class="fadeIn slow top-30 bg-white producto-pane">
+      <h2> {{ producto.nombre }} </h2>
+      <hr class="top-20">
+      <div class="row">
+        <div class="m-bott-20 col-md-6">
+          <img class="fadeIn fast img-fluid img-thumbnail" [src]="producto.url | foto" [alt]="producto.nombre">
+        </div>
+        <div class="m-bott-20 fadeIn fast col-md-6">
+          <h4>Precio: <small>{{ producto.precio | currency:'USD':true:'1.0-0' }} COP</small></h4>
+          <h4>Disponible: <small> {{ producto.disponible }} Unidades</small></h4>
+          <p class="text-justify top-30"> {{ producto.descripcion }} </p>
+        </div>
+        <div class="col-md-12 d-flex justify-content-start">
+          <input [routerLink]="['/main']" type="button" value="Atrás" class="fadeIn fast pointer btn btn-outline-info">
+          <input (click) = "onClickAnadir(producto, holi.value, holi.max)" class="pointer btn btn-outline-success left-10" type="button" value="Añadir">
+          <input [value]="1" class="w-60 form-control" #holi [max]="producto.disponible" min="0" type="number">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

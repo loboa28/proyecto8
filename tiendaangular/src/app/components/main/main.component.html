@@ -1,0 +1,35 @@
+<div class="main-container p-bott-50">
+  <div class="container">
+    <app-nav-bar></app-nav-bar>
+
+    <div class="fadeIn slow catalogo bg-white top-30">
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+        <h1>Catálogo de productos</h1>
+        <form class="form-inline my-2 my-lg-0">
+          <input #buscar [value]="this._productosService.getTermino()" (keyup) = "onKeyBusqueda(buscar.value)" class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+        </form>
+      </div>
+
+      <div *ngIf="this._productosService.getProductos()">
+        <div *ngIf="this._productosService.getProductos().length == 0" class="top-50">
+          <div class="alert alert-info">No se encontraron coincidencias para: {{ this._productosService.getTermino() }}</div>
+        </div>
+
+        <div class="card-columns top-50">
+          <div *ngFor="let producto of this._productosService.getProductos() | sort; let i = index" class="fadeIn fast card ">
+            <img class="card-img-top" [src]=" producto.url | foto " alt="{{ producto.nombre }}">
+            <div class="card-body">
+              <h3 class="card-title">{{ producto.nombre }}</h3>
+              <h5 class="card-text">Precio: <small>{{ producto.precio | currency:'USD':true:'1.0-0'}} COP</small></h5>
+              <h5 class="card-text">Disponible: <small>{{ producto.disponible}}</small></h5>
+              <div class="d-flex justify-content-end top-20">
+                <input [routerLink]="['/producto', producto.id]" class="btn btn-sm btn-outline-info pointer" type="button" value="Detalles">
+                <input (click) = "onClickAnadir(producto, holi.value, holi.max)" class="pointer btn btn-sm btn-outline-success left-5" type="button" value="Añadir">
+                <input value="1" class="w-60 form-control" #holi [max]="producto.disponible" min="0" type="number">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>   
+    </div>
+  </div>

@@ -1,0 +1,9 @@
+.catalogo {
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.img-20 {
+  max-width: 70px; 
+}

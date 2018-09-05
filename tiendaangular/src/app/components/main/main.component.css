@@ -1,0 +1,9 @@
+.catalogo {
+  box-sizing: border-box;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.card {
+  display: inline-block;
+}

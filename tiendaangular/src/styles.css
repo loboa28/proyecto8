@@ -1,0 +1,127 @@
+.main-container {
+  background-image: url("./assets/img/fondos/main-fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.notificaciones {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.c-red {
+  color: red;
+}
+
+.fs-8 {
+  font-size: 8px;
+}
+
+.left-10 {
+  margin-left: 10px;
+}
+
+.w-60 {
+  width: 60px !important;
+}
+
+.left-5 {
+  margin-left: 5px;
+}
+
+.left-2 {
+  margin-left: 2px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.flecha {
+  cursor: no-drop;
+}
+
+.fz-20 {
+  font-size: 20px;
+}
+
+.p-40 {
+  padding: 40px;
+}
+
+.top-50 {
+  margin-top: 50px;
+}
+
+.top-10 {
+  margin-top: 10px;
+}
+
+.top-30 {
+  margin-top: 30px;
+}
+
+.top-20 {
+  margin-top: 20px;
+}
+
+.top-5 {
+  margin-top: 5px;
+}
+
+.m-bott-20 {
+  margin-bottom: 20px;
+}
+
+.p-bott-20 {
+  padding-bottom: 20px;
+}
+
+.p-bott-50 {
+  padding-bottom: 50px;
+}
+
+.slow {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
